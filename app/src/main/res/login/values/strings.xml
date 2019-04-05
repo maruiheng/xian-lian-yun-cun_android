@@ -1,0 +1,8 @@
+<resources>
+    <!-- 判断验证信息 -->
+    <string name="phone_null">请输入手机号码</string>
+    <string name="password_null">请输入账户密码</string>
+    <string name="code_null">请输入验证码</string>
+    <string name="compare_pass">两次密码输入不一致</string>
+    <string name="isCheck">请选择阅读县链云村平台注册协议</string>
+</resources>
