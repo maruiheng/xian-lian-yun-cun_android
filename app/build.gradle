@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.xlyc.countychaincloudvillage"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+        packagingOptions {
+            exclude 'META-INF/rxjava.properties'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            androidTest
+            res.srcDirs = ['src/main/res',
+                           'src/main/res/common',
+                           'src/main/res/home',
+                           'src/main/res/2LOGIN',
+                           'src/main/res/login',
+                           'src/main/res/micro',
+                           'src/main/res/mine',
+                           'src/main/res/video']
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation project(':uikit')
+
+    implementation 'com.android.support:multidex:1.0.1'
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'io.reactivex:rxjava:1.2.1'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+
+//    implementation 'com.zhouyou:rxeasyhttp:2.1.5'
+
+    //butterKnife
+    implementation 'com.jakewharton:butterknife:7.0.1'
+
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+
+    //头条适配
+    implementation 'me.jessyan:autosize:1.1.2'
+
+    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'org.litepal.android:core:1.5.0'
+    implementation 'com.github.anzewei:parallaxbacklayout:1.1.6'
+    implementation 'com.github.chaychan:MultipleItemRvAdapter:1.0.4'
+    implementation 'cn.jzvd:jiaozivideoplayer:6.4.1'
+    implementation 'com.alibaba:fastjson:1.1.68.android'
+
+}
