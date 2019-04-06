@@ -60,7 +60,7 @@ dependencies {
     api 'me.weyye.ColorTrackTabLayout:library:1.0.1'
     api 'com.jaeger.recyclerviewdivider:library:1.0.1'
     api 'com.dalong:refreshlayout:1.0.3'
-    api 'com.github.chaychan:BottomBarLayout:1.0.1'
+    api 'com.github.chaychan:BottomBarLayout:1.2.0'
     api 'com.github.limedroid:XRichText:v1.0.0'
     api 'de.hdodenhof:circleimageview:2.0.0'
     api 'com.github.chrisbanes:PhotoView:2.0.0'

@@ -1,5 +1,6 @@
 package com.xlyc.countychaincloudvillage.ui.activity;
 
+import android.util.Log;
 import android.view.animation.Animation;
 
 import com.chaychan.library.BottomBarItem;
@@ -14,6 +15,7 @@ import com.xlyc.countychaincloudvillage.ui.adapter.MainTabAdapter;
 import com.xlyc.countychaincloudvillage.ui.fragment.HomeFragment;
 import com.xlyc.countychaincloudvillage.ui.fragment.MicroFragment;
 import com.xlyc.countychaincloudvillage.ui.fragment.MineFragment;
+import com.xlyc.countychaincloudvillage.ui.fragment.ShopFrogment;
 import com.xlyc.countychaincloudvillage.ui.fragment.VideoFragment;
 import com.xlyc.uikit.NoScrollViewPager;
 import com.xlyc.uikit.statusbar.Eyes;
@@ -41,7 +43,9 @@ public class MainActivity extends BaseActivity {
     private MainTabAdapter mTabAdapter;
 
     private int[] mStatusColors = new int[]{
-            R.color.color_D33D3C,
+            R.color.color_F3F5F4,
+            R.color.color_BDBDBD,
+            R.color.color_BDBDBD,
             R.color.color_BDBDBD,
             R.color.color_BDBDBD,
     };
@@ -63,10 +67,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        mFragments = new ArrayList<>(4);
+        mFragments = new ArrayList<>(5);
         mFragments.add(new HomeFragment());
         mFragments.add(new VideoFragment());
         mFragments.add(new MicroFragment());
+        mFragments.add(new ShopFrogment());
         mFragments.add(new MineFragment());
     }
 
@@ -76,10 +81,13 @@ public class MainActivity extends BaseActivity {
         mVpContent.setAdapter(mTabAdapter);
         mVpContent.setOffscreenPageLimit(mFragments.size());
         mBottomBarLayout.setViewPager(mVpContent);
-        //设置条目点击的监听
+        //设置条目点击的监听  OnItemSelectedListener
         mBottomBarLayout.setOnItemSelectedListener(new BottomBarLayout.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(BottomBarItem bottomBarItem, int position) {
+            public void onItemSelected(BottomBarItem bottomBarItem, int previousPosition, int position) {
+                Log.i("MainActivity", "currentPosition: " + position);
+                Log.i("MainActivity", "previousPosition: " + position);
+                //position 当前页下标   previousPosition 上个页面的下标
                 setStatusBarColor(position);//设置状态栏颜色
 
                 Jzvd.releaseAllVideos();//底部页签切换或者是下拉刷新，释放资源
@@ -101,15 +109,16 @@ public class MainActivity extends BaseActivity {
 
                 //如果点击了其他条目
                 BottomBarItem bottomItem = mBottomBarLayout.getBottomItem(0);
-                bottomItem.setIconSelectedResourceId(R.mipmap.tab_home_selected);//更换为原来的图标
+                bottomItem.setSelectedIconResourceId(R.mipmap.tab_home_selected);
 
                 cancelTabLoading(bottomItem);//停止旋转动画
             }
+
         });
     }
 
     private void setStatusBarColor(int position) {
-        if (position == 3){
+        if (position == 4){
             //如果是我的页面，状态栏设置为透明状态栏
             Eyes.translucentStatusBar(MainActivity.this,true);
         }else{
@@ -142,7 +151,7 @@ public class MainActivity extends BaseActivity {
 
         cancelTabLoading(bottomItem);//停止旋转动画
 
-        bottomItem.setIconSelectedResourceId(R.mipmap.tab_home_selected);//更换成首页原来图标
+        bottomItem.setSelectedIconResourceId(R.mipmap.tab_home_selected);//更换成首页原来图标
         bottomItem.setStatus(true);//刷新图标
     }
 

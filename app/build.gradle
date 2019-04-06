@@ -41,7 +41,7 @@ android {
                            'src/main/res/login',
                            'src/main/res/micro',
                            'src/main/res/mine',
-                           'src/main/res/video']
+                           'src/main/res/video', 'src/main/res/shop']
         }
     }
 
