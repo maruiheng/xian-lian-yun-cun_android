@@ -30,7 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetWork {
     public static final String ROOT_URL = "http://47.92.97.244:2222/";
 
-    private static LoginApi loginApi;
     private static ApiService apiService;
 
 
