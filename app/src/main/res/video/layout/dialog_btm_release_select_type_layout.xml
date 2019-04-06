@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/dPhotograph"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_FFFFFF"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="@color/color_000000"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_B9B6B5" />
+
+    <TextView
+        android:id="@+id/dShootVideo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_FFFFFF"
+        android:gravity="center"
+        android:text="拍视频"
+        android:textColor="@color/color_000000"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_B9B6B5" />
+
+    <TextView
+        android:id="@+id/dPhotoAlbum"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_FFFFFF"
+        android:gravity="center"
+        android:text="从手机相册选择"
+        android:textColor="@color/color_000000"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/color_ECECED" />
+
+    <TextView
+        android:id="@+id/dCancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_FFFFFF"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/color_000000"
+        android:textSize="18sp" />
+
+</LinearLayout>

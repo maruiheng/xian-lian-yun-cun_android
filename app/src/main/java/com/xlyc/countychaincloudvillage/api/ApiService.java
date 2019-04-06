@@ -5,11 +5,13 @@ package com.xlyc.countychaincloudvillage.api;
 import com.xlyc.countychaincloudvillage.model.entity.NewsDetail;
 import com.xlyc.countychaincloudvillage.model.entity.VideoModel;
 import com.xlyc.countychaincloudvillage.model.request.ForgetPwdRequest;
+import com.xlyc.countychaincloudvillage.model.request.FriendCircleListRequest;
 import com.xlyc.countychaincloudvillage.model.request.LoginRequest;
 import com.xlyc.countychaincloudvillage.model.request.RegisterRequest;
 import com.xlyc.countychaincloudvillage.model.request.SmsRequtst;
 import com.xlyc.countychaincloudvillage.model.response.BaseReponse;
 import com.xlyc.countychaincloudvillage.model.response.CommentResponse;
+import com.xlyc.countychaincloudvillage.model.response.FriendCircleListResponse;
 import com.xlyc.countychaincloudvillage.model.response.LoginResponse;
 import com.xlyc.countychaincloudvillage.model.response.NewsResponse;
 import com.xlyc.countychaincloudvillage.model.response.ResultResponse;
@@ -66,6 +68,17 @@ public interface ApiService {
      */
     @POST("customer/forget.json")
     Observable<BaseReponse<LoginResponse>> getFrogetPwd(@Body ForgetPwdRequest forgetPwdRequest);
+
+
+    /**
+     * 附近朋友圈列表
+     *
+     */
+    @POST("customer/app/common/friendcircle/list.json")
+    Observable<BaseReponse<FriendCircleListResponse>> getFriendCaircleList(@Body FriendCircleListRequest friendCircleRequest);
+
+
+
 
 
     /**

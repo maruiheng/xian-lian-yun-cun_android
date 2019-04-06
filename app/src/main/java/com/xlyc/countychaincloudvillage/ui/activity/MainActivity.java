@@ -12,6 +12,7 @@ import com.xlyc.countychaincloudvillage.base.BasePresenter;
 import com.xlyc.countychaincloudvillage.model.event.TabRefreshCompletedEvent;
 import com.xlyc.countychaincloudvillage.model.event.TabRefreshEvent;
 import com.xlyc.countychaincloudvillage.ui.adapter.MainTabAdapter;
+import com.xlyc.countychaincloudvillage.ui.fragment.CircleFriendsFragment;
 import com.xlyc.countychaincloudvillage.ui.fragment.HomeFragment;
 import com.xlyc.countychaincloudvillage.ui.fragment.MicroFragment;
 import com.xlyc.countychaincloudvillage.ui.fragment.MineFragment;
@@ -69,7 +70,8 @@ public class MainActivity extends BaseActivity {
     public void initData() {
         mFragments = new ArrayList<>(5);
         mFragments.add(new HomeFragment());
-        mFragments.add(new VideoFragment());
+//        mFragments.add(new VideoFragment());
+        mFragments.add(new CircleFriendsFragment());
         mFragments.add(new MicroFragment());
         mFragments.add(new ShopFrogment());
         mFragments.add(new MineFragment());
@@ -100,7 +102,7 @@ public class MainActivity extends BaseActivity {
                         if (position == 0) {
                             channelCode = ((HomeFragment) mFragments.get(0)).getCurrentChannelCode();//获取到首页当前显示的fragment的频道
                         } else {
-                            channelCode = ((VideoFragment) mFragments.get(1)).getCurrentChannelCode();//获取到视频当前显示的fragment的频道
+//                            channelCode = ((VideoFragment) mFragments.get(1)).getCurrentChannelCode();//获取到视频当前显示的fragment的频道
                         }
                         postTabRefreshEvent(bottomBarItem, position, channelCode);//发送下拉刷新的事件
                     }
